@@ -1,0 +1,21 @@
+[package]
+name = "renamer"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Discord app for letting certain users change other users' nicknames"
+homepage = "https://github.com/lru-dev/renamer"
+repository = "https://github.com/lru-dev/renamer"
+readme = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dotenv = "0.15.0"
+lazy_static = "1.4.0"
+poise = "0.5.7"
+sled = "0.34.7"
+strum_macros = "0.25.3"
+tokio = { version = "1.33.0", features = ["signal", "rt-multi-thread"] }
+tracing = "0.1.40"
+tracing-subscriber = "0.3.17"
