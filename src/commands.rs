@@ -285,14 +285,14 @@ async fn set_role(app_role: AppRole, ctx: &Context<'_>, role_name: &str) -> Resu
     };
 
     // Check for existing role in server; create new one if absent
-    let (role_set_msg, role_id) = match role_by_name!(guild_id, http, role_name) {
+    let (role_set_msg, _role_id) = match role_by_name!(guild_id, http, role_name) {
         Some(role) => (
             format!("Using existing server role {}.", role_name),
             role.id,
         ),
         None => {
             let new_role_id = guild_id
-                .create_role(http, |r| r.name(&role_name).mentionable(false))
+                .create_role(http, |r| r.name(role_name).mentionable(false))
                 .await?
                 .id;
             (
